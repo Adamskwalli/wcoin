@@ -32,7 +32,8 @@ def main_wcoin(session ,amount, key):
     parsed_url = urlparse(session)
     query_params = parse_qs(parsed_url.fragment)
     tgWebAppData = query_params.get('tgWebAppData', [None])[0]
-    user_data = parse_qs(tgWebAppData)['user'][0]
+    tgWebAppData = query_params.get('tgWebAppData', [None])[0]
+parsed_data = parse_qs(tgWebAppData)
     user_data = json.loads(user_data)
     identifier = str(user_data['id'])
     json_data = {
